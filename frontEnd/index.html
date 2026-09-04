@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kisan Connect — Digital Farmer Portal & Dashboard</title>
+  
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       APP CONTAINER
+       Desktop layout: Left Sidebar + Right Main Content
+       Mobile layout: Responsive Header + Stacked Cards + Bottom Bar
+       ========================================================= -->
+  <div class="app-layout">
+
+    <!-- =======================================================
+         1. LEFT SIDEBAR NAVIGATION (Terracotta Theme)
+         ======================================================= -->
+    <aside class="sidebar" id="sidebar">
+      
+      <!-- Brand Logo -->
+      <div class="sidebar-brand">
+        <span class="brand-icon">🌾</span>
+        <div class="brand-text">
+          <span class="brand-title">Kisan</span>
+          <span class="brand-sub">Saathi</span>
+        </div>
+      </div>
+
+      <!-- Navigation Links List -->
+      <nav class="sidebar-nav">
+        <ul class="nav-list">
+          <!-- Active Menu Item: Dashboard -->
+          <li class="nav-item">
+            <a href="#dashboard" class="nav-link active" data-tab="dashboard">
+              <span class="nav-icon">🏠</span>
+              <span class="nav-label">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#bookings" class="nav-link" data-tab="bookings">
+              <span class="nav-icon">🗓️</span>
+              <span class="nav-label">My Bookings</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#queue" class="nav-link" data-tab="queue">
+              <span class="nav-icon">👥</span>
+              <span class="nav-label">Live Queue</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#payments" class="nav-link" data-tab="payments">
+              <span class="nav-icon">💳</span>
+              <span class="nav-label">Payments</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#notifications" class="nav-link" data-tab="notifications">
+              <span class="nav-icon">🔔</span>
+              <span class="nav-label">Notifications</span>
+              <span class="badge-count">3</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#profile" class="nav-link" data-tab="profile">
+              <span class="nav-icon">👤</span>
+              <span class="nav-label">Profile</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#help" class="nav-link" data-tab="help">
+              <span class="nav-icon">❓</span>
+              <span class="nav-label">Help & Support</span>
+            </a>
+          </li>
+
+          <li class="nav-item nav-logout">
+            <a href="#logout" class="nav-link" id="logout-btn">
+              <span class="nav-icon">🚪</span>
+              <span class="nav-label">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar 3D Farmer Visual Card -->
+      <div class="sidebar-character-card">
+        <div class="character-img-wrapper">
+          <img src="images/farmer-male.jpg" alt="Indian Farmer Character" class="character-img">
+        </div>
+        <div class="character-badge">
+          <span class="tractor-icon">🚜</span>
+          <span class="verified-text">Smart Kisan Portal</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Sidebar Overlay for mobile screen backdrop -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- =======================================================
+         2. MAIN DASHBOARD CONTENT AREA
+         ======================================================= -->
+    <div class="main-wrapper">
+
+      <!-- Top Header Bar -->
+      <header class="top-header">
+        
+        <!-- Mobile Toggle Button (Visible only on small screens) -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Mobile Brand Title (Center on mobile) -->
+        <div class="mobile-brand">
+          <span class="brand-icon">🌾</span>
+          <span class="brand-title">Kisan Saathi</span>
+        </div>
+
+        <!-- Greeting Text on Desktop -->
+        <div class="header-greeting-box">
+          <h1 class="greeting-title">Hello, Ramesh! <span class="wave">👋</span></h1>
+          <p class="greeting-subtitle">Here's what's happening today.</p>
+        </div>
+
+        <!-- Header Right Actions: Notifications & Profile Pill -->
+        <div class="header-right">
+          <!-- Notification Bell Button -->
+          <button class="icon-btn" id="notif-btn" aria-label="View notifications">
+            <span class="bell-icon">🔔</span>
+            <span class="notif-indicator"></span>
+          </button>
+
+          <!-- Farmer Profile Pill -->
+          <div class="profile-pill" id="profile-pill">
+            <div class="profile-avatar">
+              <img src="images/farmer-male.jpg" alt="Ramesh Farmer Avatar">
+            </div>
+            <div class="profile-meta">
+              <span class="profile-name">Ramesh</span>
+              <span class="profile-role">Farmer</span>
+            </div>
+            <span class="dropdown-chevron">⌄</span>
+          </div>
+        </div>
+
+      </header>
+
+      <!-- Decorative Rural Farmland Banner with Lush Greenery, Trees & Red Tractor -->
+      <div class="rural-banner">
+        <div class="rural-scenery">
+          <!-- Stylized hills & sun glow -->
+          <div class="sun-glow"></div>
+          <div class="hills hill-back"></div>
+          <div class="hills hill-mid"></div>
+          <div class="hills hill-front"></div>
+
+          <!-- Banner Greenery Tagline -->
+          <div class="banner-badge">
+            <span class="badge-leaf">🌿</span>
+            <span class="badge-text">Lush Farmland • 45 Agroforestry Trees • Sustainable Soil</span>
+          </div>
+
+          <!-- 3D Farm Visual Assets in Banner (Trees & Red Tractor) -->
+          <div class="banner-visual-cluster">
+            <div class="cluster-tree-card" title="Native Banyan & Shade Trees">
+              <img src="images/trees-nature.jpg" alt="Lush Green Trees" class="cluster-tree-img">
+            </div>
+            <div class="cluster-tractor-card" title="Red Farm Tractor">
+              <img src="images/tractor-red.jpg" alt="3D Red Tractor" class="cluster-tractor-img">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Body Container -->
+      <main class="dashboard-body">
+
+        <!-- ===================================================
+             TOP 4 KPI SUMMARY METRIC CARDS
+             =================================================== -->
+        <section class="metrics-grid">
+          
+          <!-- Metric 1: Your Queue No. -->
+          <div class="metric-card">
+            <div class="metric-icon-box bg-green-soft">
+              <span class="metric-icon">👥</span>
+            </div>
+            <div class="metric-info">
+              <span class="metric-label">Your Queue No.</span>
+              <div class="metric-value-row">
+                <span class="metric-value">23</span>
+              </div>
+              <span class="status-pill status-in-progress">
+                <span class="pill-dot"></span> In Progress
+              </span>
+            </div>
+          </div>
+
+          <!-- Metric 2: Today's Bookings -->
+          <div class="metric-card">
+            <div class="metric-icon-box bg-orange-soft">
+              <span class="metric-icon">🗓️</span>
+            </div>
+            <div class="metric-info">
+              <span class="metric-label">Today's Bookings</span>
+              <div class="metric-value-row">
+                <span class="metric-value">2</span>
+              </div>
+              <span class="status-pill status-confirmed">Confirmed</span>
+            </div>
+          </div>
+
+          <!-- Metric 3: Total Procured -->
+          <div class="metric-card">
+            <div class="metric-icon-box bg-green-soft">
+              <span class="metric-icon">₹</span>
+            </div>
+            <div class="metric-info">
+              <span class="metric-label">Total Procured</span>
+              <div class="metric-value-row">
+                <span class="metric-value">12.5</span>
+              </div>
+              <span class="metric-subtext">Quintals</span>
+            </div>
+          </div>
+
+          <!-- Metric 4: Total Earnings -->
+          <div class="metric-card">
+            <div class="metric-icon-box bg-orange-soft">
+              <span class="metric-icon">💳</span>
+            </div>
+            <div class="metric-info">
+              <span class="metric-label">Total Earnings</span>
+              <div class="metric-value-row">
+                <span class="metric-value">₹ 8,450</span>
+              </div>
+              <span class="metric-subtext">This Season</span>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================================================
+             MIDDLE TWO-COLUMN SECTION
+             Column 1: Upcoming Slot Card with Wheat Harvest
+             Column 2: Live Queue Status Card
+             =================================================== -->
+        <section class="middle-grid">
+          
+          <!-- Column 1: Upcoming Slot Card -->
+          <div class="panel-card upcoming-slot-card">
+            <div class="panel-header">
+              <h2 class="panel-title">Upcoming Slot</h2>
+              <span class="badge-pill">Mandi Pass Active</span>
+            </div>
+
+            <div class="slot-card-content">
+              
+              <!-- Green Date Block -->
+              <div class="slot-date-badge">
+                <span class="date-day">24</span>
+                <span class="date-month">May</span>
+              </div>
+
+              <!-- Slot Details List -->
+              <div class="slot-details">
+                <h3 class="slot-full-date">24 May 2025</h3>
+                <p class="slot-time">⏰ 10:00 AM – 11:00 AM</p>
+                
+                <div class="slot-spec-list">
+                  <div class="spec-row">
+                    <span class="spec-label">Grain:</span>
+                    <span class="spec-value font-bold" id="slot-grain">Wheat (Sharbati)</span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-label">Quantity:</span>
+                    <span class="spec-value" id="slot-qty">10 Quintals</span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-label">Center:</span>
+                    <span class="spec-value" id="slot-center">Shakti Kendra, Rampur</span>
+                  </div>
+                </div>
+
+                <!-- View Details Action Button -->
+                <button class="btn btn-green-action" id="view-slot-btn">View Details</button>
+              </div>
+
+              <!-- 3D Wheat Harvest Illustration from assets -->
+              <div class="slot-illustration">
+                <img src="images/crops-wheat-corn.jpg" alt="Golden wheat harvest" class="wheat-crop-img">
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Column 2: Live Queue Status Card -->
+          <div class="panel-card queue-card">
+            <div class="panel-header">
+              <h2 class="panel-title">Live Queue Status</h2>
+              <button class="refresh-queue-btn" id="refresh-queue-btn" title="Refresh Live Queue">
+                🔄 Update
+              </button>
+            </div>
+
+            <!-- Queue Token Items -->
+            <ul class="queue-list" id="queue-list">
+              
+              <li class="queue-item status-completed">
+                <div class="queue-left">
+                  <span class="queue-dot"></span>
+                  <span class="queue-number">21</span>
+                </div>
+                <span class="queue-status-tag tag-completed">Completed</span>
+              </li>
+
+              <li class="queue-item status-completed">
+                <div class="queue-left">
+                  <span class="queue-dot"></span>
+                  <span class="queue-number">22</span>
+                </div>
+                <span class="queue-status-tag tag-completed">Completed</span>
+              </li>
+
+              <!-- Active Highlighted Row: Token 23 (You) -->
+              <li class="queue-item status-active">
+                <div class="queue-left">
+                  <span class="queue-dot"></span>
+                  <span class="queue-number font-bold">23</span>
+                </div>
+                <span class="queue-status-tag tag-active">You</span>
+              </li>
+
+              <li class="queue-item status-waiting">
+                <div class="queue-left">
+                  <span class="queue-dot"></span>
+                  <span class="queue-number">24</span>
+                </div>
+                <span class="queue-status-tag tag-waiting">Waiting</span>
+              </li>
+
+              <li class="queue-item status-waiting">
+                <div class="queue-left">
+                  <span class="queue-dot"></span>
+                  <span class="queue-number">25</span>
+                </div>
+                <span class="queue-status-tag tag-waiting">Waiting</span>
+              </li>
+
+            </ul>
+
+            <div class="queue-estimate-note">
+              <p>⏱️ Estimated wait time: <strong>~12 minutes</strong> before weighbridge scale 2.</p>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================================================
+             BOTTOM SECTION: QUICK ACTIONS
+             =================================================== -->
+        <section class="quick-actions-section">
+          <h2 class="section-title-sm">Quick Actions</h2>
+          
+          <div class="actions-buttons-row">
+            
+            <button class="action-btn" id="btn-book-slot">
+              <span class="action-btn-icon">🗓️</span>
+              <span class="action-btn-text">Book New Slot</span>
+            </button>
+
+            <button class="action-btn" id="btn-my-bookings">
+              <span class="action-btn-icon">📋</span>
+              <span class="action-btn-text">My Bookings</span>
+            </button>
+
+            <button class="action-btn" id="btn-payments">
+              <span class="action-btn-icon">💳</span>
+              <span class="action-btn-text">Payments</span>
+            </button>
+
+            <button class="action-btn" id="btn-support">
+              <span class="action-btn-icon">🎧</span>
+              <span class="action-btn-text">Help & Support</span>
+            </button>
+
+          </div>
+        </section>
+
+      </main>
+
+      <!-- =======================================================
+           FOOTER
+           ======================================================= -->
+      <footer class="app-footer">
+        <div class="footer-content">
+          <span class="footer-copyright">© 2025 Kisan Saathi. All rights reserved.</span>
+          <span class="footer-tagline">Made with ❤️ for Farmers of India 🌾</span>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- =========================================================
+       BOTTOM NAVIGATION BAR (For Mobile Screens)
+       As shown in the right mockup of the reference image
+       ========================================================= -->
+  <nav class="mobile-bottom-nav">
+    <a href="#dashboard" class="mobile-nav-item active" data-tab="dashboard">
+      <span class="mobile-icon">🏠</span>
+      <span class="mobile-label">Home</span>
+    </a>
+    <a href="#bookings" class="mobile-nav-item" data-tab="bookings">
+      <span class="mobile-icon">🗓️</span>
+      <span class="mobile-label">Bookings</span>
+    </a>
+    <a href="#queue" class="mobile-nav-item" data-tab="queue">
+      <span class="mobile-icon">👥</span>
+      <span class="mobile-label">Queue</span>
+    </a>
+    <a href="#payments" class="mobile-nav-item" data-tab="payments">
+      <span class="mobile-icon">💳</span>
+      <span class="mobile-label">Payments</span>
+    </a>
+    <a href="#profile" class="mobile-nav-item" data-tab="profile">
+      <span class="mobile-icon">👤</span>
+      <span class="mobile-label">Profile</span>
+    </a>
+  </nav>
+
+  <!-- =========================================================
+       MODAL 1: BOOK NEW SLOT DIALOG
+       Interactive beginner-friendly form validation
+       ========================================================= -->
+  <div class="modal-backdrop hidden" id="book-slot-modal">
+    <div class="modal-box">
+      <div class="modal-top">
+        <h3 class="modal-heading">🌾 Book Mandi Procurement Slot</h3>
+        <button class="modal-close" id="close-book-modal">&times;</button>
+      </div>
+
+      <form id="slot-booking-form" class="modal-form" novalidate>
+        
+        <!-- Validation feedback alert -->
+        <div class="form-alert hidden" id="booking-alert"></div>
+
+        <div class="form-field">
+          <label for="grain-type">Grain / Crop Type</label>
+          <select id="grain-type" class="form-select">
+            <option value="Wheat (गेहूँ)">Wheat (गेहूँ)</option>
+            <option value="Rice / Paddy (धान)">Rice / Paddy (धान)</option>
+            <option value="Mustard (सरसों)">Mustard (सरसों)</option>
+            <option value="Maize (मक्का)">Maize (मक्का)</option>
+            <option value="Soybean (सोयाबीन)">Soybean (सोयाबीन)</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="grain-quantity">Estimated Quantity (in Quintals)</label>
+          <input type="number" id="grain-quantity" class="form-input" placeholder="e.g. 15" min="1" max="500">
+        </div>
+
+        <div class="form-field">
+          <label for="mandi-center">Mandi Procurement Center</label>
+          <select id="mandi-center" class="form-select">
+            <option value="Shakti Kendra, Rampur">Shakti Kendra, Rampur</option>
+            <option value="Krishi Upaj Mandi, Jabalpur">Krishi Upaj Mandi, Jabalpur</option>
+            <option value="APMC Market Yard, Bhopal">APMC Market Yard, Bhopal</option>
+            <option value="Kisan Mandi Center, Indore">Kisan Mandi Center, Indore</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="slot-date">Preferred Date</label>
+          <input type="date" id="slot-date" class="form-input">
+        </div>
+
+        <div class="form-field">
+          <label for="slot-time-pref">Preferred Time Window</label>
+          <select id="slot-time-pref" class="form-select">
+            <option value="09:00 AM - 10:00 AM">Morning (09:00 AM - 10:00 AM)</option>
+            <option value="10:00 AM - 11:00 AM">Morning (10:00 AM - 11:00 AM)</option>
+            <option value="02:00 PM - 03:00 PM">Afternoon (02:00 PM - 03:00 PM)</option>
+            <option value="04:00 PM - 05:00 PM">Evening (04:00 PM - 05:00 PM)</option>
+          </select>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancel-book-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm Booking</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MODAL 2: VIEW SLOT DETAILS PASS
+       ========================================================= -->
+  <div class="modal-backdrop hidden" id="slot-details-modal">
+    <div class="modal-box">
+      <div class="modal-top">
+        <h3 class="modal-heading">🎫 Digital Mandi Gate Pass</h3>
+        <button class="modal-close" id="close-details-modal">&times;</button>
+      </div>
+
+      <div class="pass-card">
+        <div class="pass-header">
+          <span class="pass-code">PASS #KS-2025-9842</span>
+          <span class="pass-verified">✓ Active & Verified</span>
+        </div>
+
+        <div class="pass-body">
+          <div class="pass-row">
+            <span>Farmer Name:</span>
+            <strong>Rameshwar Patel</strong>
+          </div>
+          <div class="pass-row">
+            <span>Registered Mobile:</span>
+            <strong>+91 98765-43210</strong>
+          </div>
+          <div class="pass-row">
+            <span>Crop & Variety:</span>
+            <strong id="pass-grain">Wheat (Sharbati Grade A)</strong>
+          </div>
+          <div class="pass-row">
+            <span>Quantity Allotted:</span>
+            <strong id="pass-qty">10 Quintals</strong>
+          </div>
+          <div class="pass-row">
+            <span>Procurement Center:</span>
+            <strong id="pass-center">Shakti Kendra, Rampur</strong>
+          </div>
+          <div class="pass-row">
+            <span>Slot Timing:</span>
+            <strong class="text-highlight">24 May 2025 • 10:00 AM - 11:00 AM</strong>
+          </div>
+        </div>
+
+        <div class="pass-instructions">
+          <p>📋 <strong>Mandatory Checklist:</strong></p>
+          <ul>
+            <li>Please bring your Kisan Credit Card (KCC) or Aadhaar Card.</li>
+            <li>Ensure moisture level in grain is under 12% for Grade A MSP.</li>
+            <li>Show this digital token at Gate #2 weighbridge entry.</li>
+          </ul>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn btn-primary btn-block" id="print-pass-btn">Print / Download Gate Pass</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
